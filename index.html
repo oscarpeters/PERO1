@@ -29,7 +29,7 @@
             }
         </style>
     </head>
-    <!-- <img src="Pero.png" alt="PERO" style="float:right;border: 10px solid #000;width:132px;height:132px;"> -->
+    <img src="Pero.png" alt="PERO" style="float:right;border: 10px solid #000;width:132px;height:132px;">
     <body>
         <div id="info">
         <a href="https://perosystems.com" target="_blank" rel="noopener">PERO Systems</a> 
@@ -50,14 +50,10 @@
         <script src="VRMLLoader.js"></script>
         <!-- script src="VRMLoader.js"></script -->
 
-        <script src="lil-gui.module.min.js"></script>
-        <!-- script src="lil-gui.module.min.js"></script -->
-
         <script src="WebGL.js"></script>
         <!-- script src="stats.min.js"></script -->
 
-        <script type="module">
-            import { GUI } from './lil-gui.module.min.js';
+        <script>
 
             var rotate = false; var cameraZ;
             
@@ -66,20 +62,6 @@
                 document.body.appendChild( WEBGL.getWebGLErrorMessage() );
 
             }
-
-            // control gui
-            const params = {
-                printplaat: 'PERO1'
-            };
-
-            const printplaten = [
-                        'PERO1',
-                        'Pero Tracker',
-            ];
-
-            let vrmlScene;
-
-
             function toggle_rotation () {
                 rotate = ! rotate;
             }
@@ -154,7 +136,7 @@
             
             var container; //var container, stats;
 
-            var camera, controls, scene, renderer, loader;
+            var camera, controls, scene, renderer;
 
             init();
             animate();
@@ -173,72 +155,33 @@
 
                 // light
 
-                const light = new THREE.PointLight(0xffffff, 650);
-                const light2 = new THREE.PointLight(0xffffff, 650);
+                const light = new THREE.PointLight(0xffffff, 650)
+                const light2 = new THREE.PointLight(0xffffff, 650)
 
-                light.position.x = 10;
-                light.position.y = 100;
-                light.position.z = -100;
+                light.position.x = 10
+                light.position.y = 100
+                light.position.z = -100
 
-                light2.position.x = 10;
-                light2.position.y = 100;
-                light2.position.z = 100;
+                light2.position.x = 10
+                light2.position.y = 100
+                light2.position.z = 100
 
-                scene.add(light2);
-                scene.add(light);
+                scene.add(light2)
+                scene.add(light)
                 var dirLight = new THREE.DirectionalLight( 0xffffff );
                 dirLight.position.set( 200, 200, 1000 ).normalize();
 
                 camera.add( dirLight );
                 camera.add( dirLight.target );
+
+                var loader = new THREE.VRMLLoader();
                 
-                loader = new THREE.VRMLLoader();
-				loadAsset( params.printplaat );
-                
-                
-                const gui = new GUI();
-				gui.add( params, 'Printplaten', printplaten ).onChange( function ( value ) {
+                loader.load( 'VRML/PERO1.wrl', function ( object ) {
 
-					if ( vrmlScene ) {
+                    scene.add( object );
+                    fitCameraToObject ( camera, object, 2.7, controls );
 
-						vrmlScene.traverse( function ( object ) {
-
-							if ( object.material ) object.material.dispose();
-							if ( object.material && object.material.map ) object.material.map.dispose();
-							if ( object.geometry ) object.geometry.dispose();
-
-						} );
-
-						scene.remove( vrmlScene );
-
-					}
-
-					loadAsset( value );
-
-				} );
-
-			}
-
-			function loadAsset( printplaat ) {
-
-				loader.load( 'VRML/' + printplaat + '.wrl', function ( object ) {
-
-					vrmlScene = object;
-					scene.add( object );
-					fitCameraToObject ( camera, object, 2.7, controls );
-
-				} );
-
-
-                //var loader = new THREE.VRMLLoader();
-                
-                //loader.load( 'VRML/PERO1.wrl', function ( object ) {
-
-                //    scene.add( object );
-                //    fitCameraToObject ( camera, object, 2.7, controls );
-
-                //} );
-
+                } );
 
                 // renderer
 
