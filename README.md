@@ -1,2 +1,2 @@
 # PERO1
-Hier in worden de verschillende projecten weergeven mits deze passen binnen de **maximale grote van 25MB** die `Github` hanteert per file
+Portfolio of the current printed circuit making of me working at `PERO Systems`. This repo will only contain the bare circuit boards, because the maximum file size on `Github` is **25MB**.
