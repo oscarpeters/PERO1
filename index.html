@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
         <style>
             body {
-                font-family: Monospace;
+                font-family: sans-serif;
                 background-color: #000;
                 color: #fff;
                 margin: 0px;
@@ -15,27 +15,27 @@
             #info {
                 color: #fff;
                 position: absolute;
-                top: 10px;
+                top: 5px;
                 width: 100%;
                 text-align: center;
                 z-index: 100;
                 display:block;
             }
             #info a, .button {
-                color: #f00;
+                color: #189768;
                 font-weight: bold;
-                text-decoration: underline;
+                text-decoration: blink;
                 cursor: pointer
             }
         </style>
     </head>
-
+    <img src="Pero.png" alt="PERO" style="float:right;border: 10px solid #000;width:132px;height:132px;">
     <body>
         <div id="info">
         <a href="https://perosystems.com" target="_blank" rel="noopener">PERO Systems</a> 
          - Portfolio
         <br>
-        Gebruik de muiswiel of klik en beweeg om de printplaat te laten weergeven in het begin.
+        Gebruik de muiswiel om de printplaat te laten weergeven in het begin.
         <br>
         Momenteel wordt dit via Github gehost, waarbij er restricties zijn in uploaden van data.
         <br>
@@ -76,7 +76,7 @@
             
             function fitCameraToObject( camera, object, offset, controls ) {
 
-                offset =  offset || 1.35;
+                offset =  offset || 1.85;
             
                 const boundingBox = new THREE.Box3();
             
