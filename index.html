@@ -160,18 +160,19 @@
                 scene.add( camera );
 
                 // light
-                const pointLight = new THREE.PointLight(0xffffff, 0.7)
-                const light = new THREE.PointLight(0xffffff, 0.7)
+
+                const light = new THREE.PointLight(0xffffff, 650)
+                const light2 = new THREE.PointLight(0xffffff, 650)
 
                 light.position.x = 10
                 light.position.y = 100
                 light.position.z = -100
 
-                pointLight.position.x = -10
-                pointLight.position.y = -10
-                pointLight.position.z = 50
+                light2.position.x = 10
+                light2.position.y = 100
+                light2.position.z = 100
 
-                scene.add(pointLight)
+                scene.add(light2)
                 scene.add(light)
                 var dirLight = new THREE.DirectionalLight( 0xffffff );
                 dirLight.position.set( 200, 200, 1000 ).normalize();
@@ -219,6 +220,10 @@
             function animate() {
 
                 requestAnimationFrame( animate );
+                renderer.physicallyCorrectLights = true;
+                renderer.outputEncoding = THREE.sRGBEncoding;
+                renderer.shadowMap.enabled = true;
+                //renderer.toneMapping = THREE.ReinhardToneMapping;
 
                 if (rotate) {
                     var timer=Date.now() * 0.00008;
