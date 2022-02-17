@@ -160,7 +160,19 @@
                 scene.add( camera );
 
                 // light
+                const pointLight = new THREE.PointLight(0xffffff, 0.7)
+                const light = new THREE.PointLight(0xffffff, 0.7)
 
+                light.position.x = 10
+                light.position.y = 100
+                light.position.z = -100
+
+                pointLight.position.x = -10
+                pointLight.position.y = -10
+                pointLight.position.z = 50
+
+                scene.add(pointLight)
+                scene.add(light)
                 var dirLight = new THREE.DirectionalLight( 0xffffff );
                 dirLight.position.set( 200, 200, 1000 ).normalize();
 
