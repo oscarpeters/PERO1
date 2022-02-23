@@ -11,7 +11,7 @@ https://oscarpeters.github.io/PERO1/
 This addon board is the **same size** as the `Xilinx K26 SOM` and connects with the FPGA via the `HDC connector`. 
 
 ### The addon board has:
-1. **Four `USB3.0/2.0`** ports using `20 pin 0.5mm FPC` connectors
+1. **Four `USB3.1/2.0`** ports using `20 pin 0.5mm FPC` connectors
 1. **Gigabit Ethernet**
 1. **SD-card** reader
 1. **RTC battery** connector
