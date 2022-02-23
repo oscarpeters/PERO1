@@ -1,5 +1,5 @@
 # PERO portfolio
-Portfolio of printed circuit making from me working at **`PERO Systems`**. This repo will only contain the bare circuit boards, because the maximum file size on **`Github`** is **25MB** per file.
+Portfolio of printed circuit making from me working at **`PERO Systems`**. This repo will only contain the bare circuit boards, because the maximum file size on **`Github`** which is **25MB** per file.
 ![Top side PCB](https://github.com/oscarpeters/PERO1/blob/main/pictures/pero1.PNG)
 
 ## Portfolio Website 
